@@ -1,0 +1,4 @@
+{{range $shortcut, $desc := sdict "sacrificeMapAlva" "Sacrifice a Map to gain 3 Alva Atlas Missions" "sacrificeMapNiko" "Sacrifice a Map to gain 3 Niko Atlas Missions" "sacrificeMapEinhar" "Sacrifice a Map to gain 3 Einhar Atlas Missions" "sacrificeMapJun" "Sacrifice a Map to gain 3 Jun Atlas Missions" "sacrificeMapZana" "Sacrifice a Map to gain 3 Zana Atlas Missions" "sacrificeMapAllMaster" "Sacrifice a Map to gain 1 Atlas Mission for each Master" "sacrificeWeapArmForBelt" "Sacrifice a Weapon or Armour to create a Belt with similar modifiers" "sacrificeWeapArmForRing" "Sacrifice a Weapon or Armour to create a Ring with similar modifiers" "sacrificeWeapArmForAmulet" "Sacrifice a Weapon or Armour to create an Amulet with similar modifiers" "sacrificeWeapArmForJewel" "Sacrifice a Weapon or Armour to create a Jewel with similar modifiers"}}
+{{dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc}}
+{{end}}
+Inserted Craft Group 9

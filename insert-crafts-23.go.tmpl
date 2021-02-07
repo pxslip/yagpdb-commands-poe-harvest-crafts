@@ -1,0 +1,4 @@
+{{range $shortcut, $desc := sdict "addChaos" "Augment an item with a new Chaos modifier" "removeChaos" "Remove a random Chaos modifier from an item" "randomiseChaos" "Randomise the numeric values of the random Chaos modifiers on a Magic or Rare item" "removeAddChaos" "Remove a random Chaos modifier from an item and add a new Chaos modifier" "reforgeMoreCommonChaos" "Reforge a Rare item with new random modifiers, including a Chaos modifier. Chaos modifiers are more common" "addLuckyChaos" "Augment an item with a new Chaos modifier with Lucky values" "changeUniqueToRandom" "Change a Unique item into another random Unique item" "changeUniqueToWeap" "Change a Unique into a random Unique Weapon" "changeUniqueToArm" "Change a Unique into a random Unique Armour" "changeUniqueToRingAmuBelt" "Change a Unique into a random Unique Ring, Amulet or Belt"}}
+{{dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc}}
+{{end}}
+Inserted Craft Group 23
