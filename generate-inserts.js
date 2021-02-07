@@ -15,7 +15,7 @@ const {open, writeFile} = require('fs/promises');
 {{dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc}}
 {{end}}
 Inserted Craft Group ${i}`;
-      writeFile(join(__dirname, `insert-crafts-${i}.go.tmpl`), tpl);
+      writeFile(join(__dirname, 'inserts', `insert-crafts-${i}.go.tmpl`), tpl);
       i++;
     }
   }
