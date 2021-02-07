@@ -6,5 +6,15 @@ With harvest returning to the main game a method for storing and searching craft
 
 - All db insertions use a prefix of `poehcs` to hopefully avoid conflicts
   - Specifically the keys prefixes currently in use are:
-    - `poehcs_{craft_shortcut}_{i_lvl}` for storing user owned crafts
-    - `poehcs_craft_{craft_shortcut}` for storing craft shortcut to description mappings
+    - `poehcs_u_{craft_shortcut}_{ilvl}` for storing user owned crafts
+    - `poehcs_c_{craft_shortcut}` for storing craft shortcut to description mappings
+
+## Common stanzas
+- Increment a craft for a user
+```
+{{$count := dbIncr .User.ID (joinStr "_" "poehcs" (lower ($args.Get 0)) (lower ($args.Get 1))) [increment value]}}
+```
+- Strip the first x characters from a string (9 for user crafts, 13 for craft maps)
+```
+{{slice $string [num_characters]}}
+```
