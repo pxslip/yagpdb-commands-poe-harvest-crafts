@@ -1,0 +1,13 @@
+{{$args := parseArgs 1 "First argument is the craft shortcut name, second, optional, argument is the iLvl of the craft"
+  (carg "string" "The shortcut name of the craft you want to find")
+  (carg "string" "The iLvl of the craft (optional)")
+  (carg "int" "An offset for more results (0-based) (optional)")}}
+{{$nSkip := 0}}
+{{if $args.IsSet 2}}{{$nSkip = mult ($args.Get 2) 10}}{{end}}
+{{$crafts := dbTopEntries "poehcs\_u\_%" 10 0}}
+{{if $crafts}}
+  {{range $craft := $crafts}}
+  {{$craftParts := split (slice $craft.Key 9) "_"}}
+  {{$craft.User.Username.String}} has {{$craft.Value}} {{index $craftParts 0}} at iLvl {{index $craftParts 1}}
+  {{end}}
+{{end}}
