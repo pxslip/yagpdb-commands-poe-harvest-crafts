@@ -1,0 +1,8 @@
+{{$page := 0}}
+{{if not (eq (len .CmdArgs) 0)}}
+  {{$page = sub (index .CmdArgs 0) 1}}
+{{end}}
+{{$crafts := dbGetPattern 0 "poehcs_craft_%" 100 (mult $page 10)}}
+{{range $craft := $crafts}}
+{{slice $craft.Key 13}}: {{$craft.Value}}
+{{end}}
