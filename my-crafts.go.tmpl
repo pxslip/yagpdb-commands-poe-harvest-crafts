@@ -1,8 +1,12 @@
 {{$crafts := dbGetPattern .User.ID "poehcs\\_u\\_%" 100 0}}
-{{$dm := ""}}
-{{range $craft := $crafts}}
-  {{$keyParts := split (slice $craft.Key 9) "_"}}
-  {{$dm = joinStr "\\n" $dm (joinStr " " "You have" $craft.Value (index $keyParts 0) "at iLvl" (index $keyParts 1))}}
-  {{joinStr " " "You have" $craft.Value (index $keyParts 0) "at iLvl" (index $keyParts 1)}}
+{{if eq (len $crafts) 0}}
+  {{sendDM "You have no crafts available"}}
+{{else}}
+  {{$dm := ""}}
+  {{range $craft := $crafts}}
+    {{$keyParts := split (slice $craft.Key 9) "_"}}
+    {{$dm = joinStr "\\n" $dm (joinStr " " "You have" $craft.Value (index $keyParts 0) "at iLvl" (index $keyParts 1))}}
+    {{joinStr " " "You have" $craft.Value (index $keyParts 0) "at iLvl" (index $keyParts 1)}}
+  {{end}}
+  {{sendDM $dm}}
 {{end}}
-{{sendDM $dm}}

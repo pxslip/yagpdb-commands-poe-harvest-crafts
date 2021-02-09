@@ -1,8 +1,5 @@
 {{$args := parseArgs 1 "Argument is a craft shortcut, e.g. [prefix]isCraftShortcut [craftShortcut]"
   (carg "string" "The shortcut for the craft you wish to validate")}}
-{{$craft := dbGet 0 (joinStr "" "poehcs\\_craft\\_" ($args.Get 0))}}
-{{if $craft}}
-  Shortcut {{$craft.Key}} is for {{$craft.Value}}
-{{else}}
-  Shortcut {{$args.Get 0}} is not a valid shortcut
-{{end}}
+{{$key := joinStr "_" "poehcs" "craft" ($args.Get 0)}}
+{{$craft := dbGet 0 $key}}
+{{if $craft}}Shortcut {{slice $craft.Key 13}} is for {{$craft.Value}}{{else}}Shortcut {{$args.Get 0}} is not a valid shortcut{{end}}
