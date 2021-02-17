@@ -10,7 +10,7 @@ const { open, writeFile } = require("fs/promises");
     while (crafts.length > 0) {
       const craftSlice = crafts.splice(0, 10);
       const craftSdict = craftSlice.join(" ").split('","').join('" "');
-      const tpl = `{{- ange $shortcut, $desc := sdict ${craftSdic -}}}
+      const tpl = `{{- range $shortcut, $desc := sdict ${craftSdict} -}}
 {{- bSet 0 (joinStr "" "poehcs_craft_" $shortcut) $des -}}
 {{- n -}}
 Inserted Craft Group ${i}`;
