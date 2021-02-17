@@ -7,5 +7,9 @@
 {{- $nSkip := 0 -}}
 {{- if $args.IsSet 2 -}}{{- $nSkip = mult ($args.Get 2) 10 -}}{{- end -}}
 {{- $crafts := dbTopEntries $searchStr 10 $nSkip -}}
-{{- if (gt (len $crafts) 0) -}}{{- range $craft := $crafts -}}{{- $craftParts := split (slice $craft.Key 9) "_" -}}{{- $craft.User.Username -}} has {{- $craft.Value -}} {{- index $craftParts 0 -}} at iLvl {{- index $craftParts 1 -}}{{- end -}}
+{{- if (gt (len $crafts) 0) -}}
+{{- range $craft := $crafts -}}
+{{- $craftParts := split (slice $craft.Key 9) "_" -}}
+{{ $craft.User.Username }} has {{ $craft.Value }} {{ index $craftParts 0 }} at iLvl {{ index $craftParts 1 }}
+{{ end }}
 {{- else -}}No crafts match your search{{- end -}}
