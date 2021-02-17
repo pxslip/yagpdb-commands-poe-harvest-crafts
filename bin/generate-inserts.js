@@ -11,10 +11,13 @@ const { open, writeFile } = require("fs/promises");
       const craftSlice = crafts.splice(0, 10);
       const craftSdict = craftSlice.join(" ").split('","').join('" "');
       const tpl = `{{- range $shortcut, $desc := sdict ${craftSdict} -}}
-{{- bSet 0 (joinStr "" "poehcs_craft_" $shortcut) $des -}}
-{{- n -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- end -}}
 Inserted Craft Group ${i}`;
-      writeFile(join(__dirname, "inserts", `insert-crafts-${i}.go.tmpl`), tpl);
+      writeFile(
+        join(__dirname, "..", "inserts", `insert-crafts-${i}.go.tmpl`),
+        tpl
+      );
       i++;
     }
   }
