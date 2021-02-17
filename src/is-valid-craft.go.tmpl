@@ -1,4 +1,4 @@
-{- {$args := parseArgs 1 "Argument is a craft shortcut, e.g. [prefix]isCraftShortcut [craftShortcut]"
+{{- $args := parseArgs 1 "Argument is a craft shortcut, e.g. [prefix]isCraftShortcut [craftShortcut]"
   (carg "string" "The shortcut for the craft you wish to validate") -}}
 {{- $key := joinStr "_" "poehcs" "craft" ($args.Get 0) -}}
 {{- $craft := dbGet 0 $key -}}

@@ -2,4 +2,4 @@
   (carg "string" "The shortcut name of the craft you want to add")
   (carg "string" "The iLvl of the craft") -}}
 {{- $count := dbIncr .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) 1 -}}
-You have {{- coun -}} {{- args.Get -}} crafts with iLvl {{- args.Get -}}
+You have {{- $count -}} {{- $args.Get 0 -}} crafts with iLvl {{- args.Get 1 -}}

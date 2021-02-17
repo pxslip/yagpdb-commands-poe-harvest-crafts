@@ -1,8 +1,8 @@
-{{- args := parseArgs 2 "Requires 2 values, craft shortcut (!craftShortcuts) and iLvl of the craft e.g. !addCraft remAddFire 76"
+{{- $args := parseArgs 2 "Requires 2 values, craft shortcut (!craftShortcuts) and iLvl of the craft e.g. !addCraft remAddFire 76"
   (carg "string" "The shortcut name of the craft you want to add")
-  (carg "string" "The iLvl of the craft" -}}
-{{- count := (dbIncr .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) -1 -}}
-{{- f le (toInt $count)  -}}
-  {{- bDel .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1)) -}}
-{{- n -}}
-{{- endDM (joinStr " " "You have" $count ($args.Get 0) "remaining" -}}
+  (carg "string" "The iLvl of the craft") -}}
+{{- $count := (dbIncr .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) -1) -}}
+{{- if le (toInt $count) 0 -}}
+  {{- dbDel .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) -}}
+{{- end -}}
+{{- sendDM (joinStr " " "You have" $count ($args.Get 0) "remaining") -}}

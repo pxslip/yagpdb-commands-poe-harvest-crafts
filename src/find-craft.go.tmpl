@@ -1,21 +1,11 @@
-{{- args := parseArgs 1 "First argument is the craft shortcut name, second, optional, argument is the iLvl of the craft"
+{{- $args := parseArgs 1 "First argument is the craft shortcut name, second, optional, argument is the iLvl of the craft"
   (carg "string" "The shortcut name of the craft you want to find")
   (carg "string" "The iLvl of the craft (optional)")
-  (carg "int" "An offset for more results (0-based) (optional)" -}}
-{{- searchStr := joinStr "\\_" "poehcs" "u" (lower ($args.Get 0) -}}
-{{- f $args.IsSet  -}}
-  {{- searchStr = joinStr "\\_" $searchStr ($args.Get 1 -}}
-{{- ls -}}
-  {{- searchStr = joinStr "\\_" $searchStr "% -}}
-{{- n -}}
-{{- nSkip :=  -}}
-{{- f $args.IsSet  -}}{{- nSkip = mult ($args.Get 2) 1 -}}{{- n -}}
-{{- crafts := dbTopEntries $searchStr 10 $nSki -}}
-{{- f (gt (len $crafts) 0 -}}
-  {{- ange $craft := $craft -}}
-    {{- craftParts := split (slice $craft.Key 9) "_ -}}
-    {{- craft.User.Usernam -}} has {{- craft.Valu -}} {{- ndex $craftParts  -}} at iLvl {{- ndex $craftParts  -}}
-  {{- n -}}
-{{- ls -}}
-  No crafts match your search
-{{- n -}}
+  (carg "int" "An offset for more results (0-based) (optional)") -}}
+{{- $searchStr := joinStr "\\_" "poehcs" "u" (lower ($args.Get 0)) -}}
+{{- if $args.IsSet 1 -}}{{- $searchStr = joinStr "\\_" $searchStr ($args.Get 1) -}}{{- else -}}{{- $searchStr = joinStr "\\_" $searchStr "%" -}}{{- end -}}
+{{- $nSkip := 0 -}}
+{{- if $args.IsSet 2 -}}{{- $nSkip = mult ($args.Get 2) 10 -}}{{- end -}}
+{{- $crafts := dbTopEntries $searchStr 10 $nSkip -}}
+{{- if (gt (len $crafts) 0) -}}{{- range $craft := $crafts -}}{{- $craftParts := split (slice $craft.Key 9) "_" -}}{{- $craft.User.Username -}} has {{- $craft.Value -}} {{- index $craftParts 0 -}} at iLvl {{- index $craftParts 1 -}}{{- end -}}
+{{- else -}}No crafts match your search{{- end -}}
