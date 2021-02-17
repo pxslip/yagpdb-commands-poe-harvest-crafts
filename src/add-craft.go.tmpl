@@ -1,0 +1,5 @@
+{{- $args := parseArgs 2 "Requires 2 values, craft shortcut (!craftShortcuts) and iLvl of the craft e.g. !addCraft remAddFire 76"
+  (carg "string" "The shortcut name of the craft you want to add")
+  (carg "string" "The iLvl of the craft") -}}
+{{- $count := dbIncr .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) 1 -}}
+You have {{- coun -}} {{- args.Get -}} crafts with iLvl {{- args.Get -}}

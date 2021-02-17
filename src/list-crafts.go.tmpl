@@ -1,0 +1,6 @@
+{{- page :=  -}}
+{{- f not (eq (len .CmdArgs) 0 -}}
+  {{- page = sub (index .CmdArgs 0)  -}}
+{{- n -}}
+{{- crafts := dbGetPattern 0 "poehcs\\_craft\\_%" 10 (mult $page 10 -}}
+{{- ange $craft := $craft -}}{{- craft.Ke -}}: {{- craft.Valu -}}{{- n -}}
