@@ -1,0 +1,3 @@
+{{- $args = parseArgs 1 "Usage: poeign [PoE name where users can contact you]" (cargs "string" "ign") -}}
+{{- dbSet .User.ID "poehcs_ign" ($args.Get 0) -}}
+You have set your ign to {{ $args.Get 0 }}

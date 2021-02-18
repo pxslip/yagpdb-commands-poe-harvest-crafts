@@ -1,0 +1,7 @@
+{{- $args := parseArgs 3 "Usage: -command [Discord Username] [Craft Shortcut] [Craft iLvl]"
+  (carg "string" "Discord Username")
+  (carg "string" "Craft Shortcut")
+  (carg "string" "Craft iLvl") -}}
+{{- $user := userArg ($args.Get 0) -}}
+{{- $ign := dbGet $user.ID "poehcs_ign" -}}
+Copy the following to contact the owner of the craft: `@{{$ign}} I would like to purchase your {{$args.Get 1}} with iLvl {{$args.Get 2}}`
