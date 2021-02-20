@@ -1,6 +1,6 @@
 # Harvest Craft Bot for Path of Exile
 
-With harvest going core a method for storing and searching crafts seems necessary. This particular approach is fully manual, but built as a set of custom commands for (YAGPDB)[https://github.com/jonas747/yagpdb].
+With harvest going core a method for storing and searching crafts seems necessary. This particular approach is fully manual, but built as a set of custom commands for [YAGPDB](https://github.com/jonas747/yagpdb).
 
 ## Installation
 
