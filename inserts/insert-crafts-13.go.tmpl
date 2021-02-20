@@ -1,4 +1,6 @@
-{{- ange $shortcut, $desc := sdict "randomiseLife" "Randomise the numeric values of the random Life modifiers on a Magic or Rare item" "removeAddLife" "Remove a random Life modifier from an item and add a new Life modifier" "reforgeMoreCommonLife" "Reforge a Rare item with new random modifiers, including a Life modifier. Life modifiers are more common" "addLuckyLife" "Augment an item with a new Life modifier with Lucky values" "socketTo3" "Set an item to three sockets" "socketTo4" "Set an item to four sockets" "socketTo5" "Set an item to five sockets" "socketTo6" "Set an item to six sockets" "reforgeNormalToRareCold" "Reforge a Normal or Magic item as a Rare item with random modifiers, including a Cold modifier" "reforgeCold" "Reforge a Rare item with new random modifiers, including a Cold modifier -}}
-{{- bSet 0 (joinStr "" "poehcs_craft_" $shortcut) $des -}}
-{{- n -}}
+{{- range $shortcut, $desc := sdict "randomiseLife" "Randomise the numeric values of the random Life modifiers on a Magic or Rare item" "removeAddLife" "Remove a random Life modifier from an item and add a new Life modifier" "reforgeMoreCommonLife" "Reforge a Rare item with new random modifiers, including a Life modifier. Life modifiers are more common" "addLuckyLife" "Augment an item with a new Life modifier with Lucky values" "socketTo3" "Set an item to three sockets" "socketTo4" "Set an item to four sockets" "socketTo5" "Set an item to five sockets" "socketTo6" "Set an item to six sockets" "reforgeNormalToRareCold" "Reforge a Normal or Magic item as a Rare item with random modifiers, including a Cold modifier" "reforgeCold" "Reforge a Rare item with new random modifiers, including a Cold modifier" -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- end -}}
 Inserted Craft Group 13
+{{ deleteTrigger }}
+{{ deleteResponse }}

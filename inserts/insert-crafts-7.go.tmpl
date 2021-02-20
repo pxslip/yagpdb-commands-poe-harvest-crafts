@@ -1,4 +1,6 @@
-{{- ange $shortcut, $desc := sdict "exchange3VaalRegret" "Exchange 3 Vaal Orbs for 6 Orbs of Regret" "exchange3ChiselVaal" "Exchange 3 Cartographer's Chisels for 3 Vaal Orbs" "changeStackFossil" "Change a stack of Fossils into a different type of Fossil" "changeStackEssence" "Change a stack of Essences into a different type of the same tier" "changeStackDeliOrb" "Change a stack of Delirium Orbs into a different type of Delirium Orb" "changeStackOil" "Change a stack of Oils into a different colour of Oil" "changeStackCatalyst" "Change a stack of Catalysts into a different type of Catalyst" "sacrificeMapFreeCraft" "Sacrifice a Map. Add a free craft to your Map device" "sacrificeMapFreeAnarchy" "Sacrifice a Map. Add a free Infused Anarchy craft to your Map device" "sacrificeMapFreeNemesis" "Sacrifice a Map. Add a free Infused Nemesis craft to your Map device -}}
-{{- bSet 0 (joinStr "" "poehcs_craft_" $shortcut) $des -}}
-{{- n -}}
+{{- range $shortcut, $desc := sdict "exchange3VaalRegret" "Exchange 3 Vaal Orbs for 6 Orbs of Regret" "exchange3ChiselVaal" "Exchange 3 Cartographer's Chisels for 3 Vaal Orbs" "changeStackFossil" "Change a stack of Fossils into a different type of Fossil" "changeStackEssence" "Change a stack of Essences into a different type of the same tier" "changeStackDeliOrb" "Change a stack of Delirium Orbs into a different type of Delirium Orb" "changeStackOil" "Change a stack of Oils into a different colour of Oil" "changeStackCatalyst" "Change a stack of Catalysts into a different type of Catalyst" "sacrificeMapFreeCraft" "Sacrifice a Map. Add a free craft to your Map device" "sacrificeMapFreeAnarchy" "Sacrifice a Map. Add a free Infused Anarchy craft to your Map device" "sacrificeMapFreeNemesis" "Sacrifice a Map. Add a free Infused Nemesis craft to your Map device" -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- end -}}
 Inserted Craft Group 7
+{{ deleteTrigger }}
+{{ deleteResponse }}
