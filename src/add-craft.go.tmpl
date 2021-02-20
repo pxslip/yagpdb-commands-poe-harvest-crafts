@@ -3,3 +3,5 @@
   (carg "string" "The iLvl of the craft") -}}
 {{- $count := dbIncr .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) 1 -}}
 You have {{ $count }} {{ $args.Get 0 }} crafts with iLvl {{ $args.Get 1 }}
+{{- deleteTrigger 60 -}}
+{{- deleteResponse 60 -}}

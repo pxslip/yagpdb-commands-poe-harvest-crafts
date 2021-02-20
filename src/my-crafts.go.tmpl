@@ -1,9 +1,10 @@
 {{- $crafts := dbGetPattern .User.ID "poehcs\\_u\\_%" 100 0 -}}
 {{- $ign := dbGet .User.ID "poehcs_ign" -}}
+{{- $league := dbGet .User.ID "poehcs_league" -}}
 {{- if eq (len $crafts) 0 -}}{{- sendDM "You have no crafts available" -}}
 {{- else -}}
 ```
-# WTS Ritual - IGN: {{$ign}}
+# WTS {{$league}} - IGN: {{$ign}}
 {{- range $craft := $crafts -}}
 {{- $keyParts := split (slice $craft.Key 9) "_" -}}
   ({{$craft.Value}}x) [{{index $keyParts 0}}][lvl{{index $keyParts 1}}] <>

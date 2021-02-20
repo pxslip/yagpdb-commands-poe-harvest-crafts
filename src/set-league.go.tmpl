@@ -1,0 +1,5 @@
+{{- $args = parseArgs 1 "Usage: poeign [PoE name where users can contact you]" (cargs "string" "ign") -}}
+{{- dbSet .User.ID "poehcs_league" ($args.Get 0) -}}
+You have set your league to {{ $args.Get 0 }}
+{{- deleteTrigger 60 -}}
+{{- deleteResponse 60 -}}
