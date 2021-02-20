@@ -5,3 +5,5 @@
 {{ if $craft }}Shortcut {{ slice $craft.Key 13 }} is for {{ $craft.Value }}
 {{ else }}Shortcut {{ $args.Get 0 }} is not a valid shortcut
 {{ end }}
+{{- deleteTrigger 60 -}}
+{{- deleteResponse 60 -}}

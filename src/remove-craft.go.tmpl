@@ -6,3 +6,5 @@
 {{- dbDel .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) -}}
 {{ joinStr " " "You have" $count ($args.Get 0) "remaining" }}
 {{- end -}}
+{{- deleteTrigger 60 -}}
+{{- deleteResponse 60 -}}

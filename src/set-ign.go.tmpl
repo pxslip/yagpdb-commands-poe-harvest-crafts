@@ -1,3 +1,5 @@
-{{- $args = parseArgs 1 "Usage: poeign [PoE name where users can contact you]" (cargs "string" "ign") -}}
+{{- $args = parseArgs 1 "Usage: poeign [PoE name where users can contact you]" (carg "string" "ign") -}}
 {{- dbSet .User.ID "poehcs_ign" ($args.Get 0) -}}
 You have set your ign to {{ $args.Get 0 }}
+{{- deleteTrigger 60 -}}
+{{- deleteResponse 60 -}}

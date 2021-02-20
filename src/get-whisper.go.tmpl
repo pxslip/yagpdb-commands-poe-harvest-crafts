@@ -5,3 +5,5 @@
 {{- $user := userArg ($args.Get 0) -}}
 {{- $ign := dbGet $user.ID "poehcs_ign" -}}
 Copy the following to contact the owner of the craft: `@{{$ign}} I would like to purchase your {{$args.Get 1}} with iLvl {{$args.Get 2}}`
+{{- deleteTrigger 300 -}}
+{{- deleteResponse 300 -}}
