@@ -14,13 +14,16 @@ If you are self-hosted you could manually insert the data into the DB
 
 The example command prefixes are examples only, choose a command trigger that makes sense to you!
 
-- Add a Craft `addCraft [shortcut] [iLvl]` - add a craft associated with the calling user at the given iLvl
-- Remove a Craft `removeCraft [shortcut] [iLvl]` - remove a craft from your list once used
-- My Crafts `myCrafts` - get a list of crafts the current user ahs
-- List Crafts `listCrafts {page}` - get a list of crafts with shortcut and description (limited to 10 per page)
-- Check Craft Shortcut `isCraftShortcut [shortcut]` - check if a value is a valid craft shortcut
-- Find a Craft `findCraft [shortcut] {iLvl} {page}` - search crafts by shortcut and iLvl limited to 10 per page, use the page parameter to show later pages
-- List Craft Commands - Output a list of commands from this module
+- Add a Craft `add-craft.go.tmpl [shortcut] [iLvl]` - add a craft associated with the calling user at the given iLvl
+- Remove a Craft `remove-craft.go.tmpl [shortcut] [iLvl]` - remove a craft from your list once used
+- My Crafts `my-crafts.go.tmpl` - get a list of crafts the current user ahs
+- List Crafts `list-crafts.go.tmpl {page}` - get a list of crafts with shortcut and description (limited to 10 per page)
+- Check Craft Shortcut `is-craft-shortcut.go.tmpl [shortcut]` - check if a value is a valid craft shortcut
+- Find a Craft `find-craft.go.tmpl [shortcut] {iLvl} {page}` - search crafts by shortcut and iLvl limited to 10 per page, use the page parameter to show later pages
+- Get whisper message `get-whisper.go.tmpl [discord_username] [shortcut] [iLvl]` - get a whisper message to copy to in game chat
+- List commands in module `list-commands.go.tmpl` - outputs a list of the commands in this module
+- Set your IGN `set-ign.go.tmpl [ign]` - sets the in game name where buyers can contact you
+- Set your league `set-league.go.tmpl [league]` - set the league you're selling from
 
 * Legend: Parameters wrapped in [] are required, wherease parameters wrapped in {} are optional
 
