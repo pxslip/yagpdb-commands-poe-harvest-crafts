@@ -25,7 +25,7 @@ Each command in the list shows the file containing the code. Set the trigger to 
 - Set your IGN `set-ign.go.tmpl [ign]` - sets the in game name where buyers can contact you
 - Set your league `set-league.go.tmpl [league]` - set the league you're selling from
 
-* Legend: Parameters wrapped in [] are required, whereas parameters wrapped in {} are optional
+Legend: Parameters wrapped in `[]` are required, whereas parameters wrapped in `{}` are optional
 
 ## Notes
 
