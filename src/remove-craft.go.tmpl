@@ -15,12 +15,12 @@
     {{- end -}}
     {{- if (le $count 0) -}}
       {{- dbDelByID .User.ID $craft.ID -}}
-      You have no {{$args.Get 0}} with level {{$args.Get 1}}
+      {{- $count = 0 -}}
     {{- else -}}
       {{- $value := joinStr "|" $count $price -}}
       {{- dbSet .User.ID $key $value -}}
-      You have {{$count}} {{$args.Get 0}} with level {{$args.Get 1}}, price is currently {{$price}}
     {{- end -}}
+    You have {{$count}} {{$args.Get 0}} with level {{$args.Get 1}}, price is currently {{$price}}
   {{- else -}}
     You had no {{$args.Get 0}} at iLvl {{$args.Get 1}}
   {{- end -}}
