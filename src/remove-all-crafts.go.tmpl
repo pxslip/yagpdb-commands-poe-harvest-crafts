@@ -1,0 +1,7 @@
+{{- $crafts := dbGetPattern .User.ID "poehcs\\_u\\_%" 100 0 -}}
+{{- range $craft := $crafts -}}
+{{- dbDelByID .User.ID $craft.ID -}}
+{{- end -}}
+Cleared your current crafts!
+{{- deleteTrigger 5 -}}
+{{- deleteResponse 5 -}}
