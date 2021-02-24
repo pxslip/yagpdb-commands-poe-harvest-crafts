@@ -54,3 +54,11 @@ Legend: Parameters wrapped in `[]` are required, whereas parameters wrapped in `
 ```
 {{- slice $string [num_characters] -}}
 ```
+
+- Test if a craft shortcut is valid
+
+```
+{{- $craftExists := dbGet 0 (joinStr "_" "poehcs" "craft" (lower ($args.Get 0))) -}}
+{{- if $craftExists -}}
+{{- end -}}
+```
