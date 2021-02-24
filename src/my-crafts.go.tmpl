@@ -12,7 +12,7 @@
 {{- if (ge (len $valueParts) 2) -}}
   {{- $cost := (index $valueParts 1) -}}
 {{- end -}}
-  ({{index $valueParts 0}}x) [{{index $keyParts 0}}][lvl{{index $keyParts 1}}] <{{$cost}}>
+  ({{(toInt (index $valueParts 0))}}x) [{{index $keyParts 0}}][lvl{{index $keyParts 1}}] <{{$cost}}>
 {{- end -}}
 ```
 {{- end -}}
