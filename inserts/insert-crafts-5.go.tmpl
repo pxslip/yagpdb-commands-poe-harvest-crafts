@@ -1,6 +1,6 @@
 {{- range $shortcut, $desc := sdict "upgradeRarity10Times" "Upgrades a Normal Item to a random rarity 10 times, using the outcome with the highest rarity" "reforge10Times" "Reforges a Rare item with new random modifiers 10 times, using the outcome with the highest average modifier level" "swapResFireToCold" "Change a modifier that grants Fire Resistance into a similar-tier modifier that grants Cold Resistance" "swapResColdToLightning" "Change a modifier that grants Cold Resistance into a similar-tier modifier that grants Lightning Resistance" "swapResLightningToFire" "Change a modifier that grants Lightning Resistance into a similar-tier modifier that grants Fire Resistance" "swapResFireToLightning" "Change a modifier that grants Fire Resistance into a similar-tier modifier that grants Lightning Resistance" "swapResColdToFire" "Change a modifier that grants Cold Resistance into a similar-tier modifier that grants Fire Resistance" "swapResLightningToCold" "Change a modifier that grants Lightning Resistance into a similar-tier modifier that grants Cold Resistance" "exchange3ChaosDivine" "Exchange 3 Chaos Orbs for a Divine Orb" "exchange3TransmutAlch" "Exchange 3 Orbs of Transmutation for 3 Orbs of Alchemy" -}}
-{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" (lower $shortcut)) $desc -}}
 {{- end -}}
 Inserted Craft Group 5
-{{ deleteTrigger }}
-{{ deleteResponse }}
+{{ deleteTrigger 60 }}
+{{ deleteResponse 60 }}

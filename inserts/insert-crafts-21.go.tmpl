@@ -1,6 +1,6 @@
 {{- range $shortcut, $desc := sdict "randomiseDefence" "Randomise the numeric values of the random Defence modifiers on a Magic or Rare item" "removeAddDefence" "Remove a random Defence modifier from an item and add a new Defence modifier" "reforgeMoreCommonDefence" "Reforge a rare item with new random modifiers, including a Defence modifier. Defence modifiers are more common" "addLuckyDefence" "Augment an item with a new Defence modifier with Lucky values" "reforgeNormalToRareLightning" "Reforge a Normal or Magic item as a Rare item with random modifiers, including a Lightning modifier" "reforgeLightning" "Reforge a Rare item with new random modifiers, including a Lightning modifier" "removeNonAddLightning" "Remove a random non-Lightning modifier from an item and add a new Lightning modifier" "addLightning" "Augment an item with a new Lightning modifier" "removeLightning" "Remove a random Lightning modifier from an item" "randomiseLightning" "Randomise the numeric values of the random Lightning modifiers on a Magic or Rare item" -}}
-{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" (lower $shortcut)) $desc -}}
 {{- end -}}
 Inserted Craft Group 21
-{{ deleteTrigger }}
-{{ deleteResponse }}
+{{ deleteTrigger 60 }}
+{{ deleteResponse 60 }}

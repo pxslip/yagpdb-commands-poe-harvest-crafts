@@ -1,6 +1,6 @@
 {{- range $shortcut, $desc := sdict "sacrificeMapFreeDomination" "Sacrifice a Map. Add a free Infused Domination craft to your Map device" "sacrificeMapFreeBloodlines" "Sacrifice a Map. Add a free Infused Bloodlines craft to your Map device" "sacrificeMapFreeRampage" "Sacrifice a Map. Add a free Infused Rampage craft to your Map device" "sacrificeMapFreeAmbush" "Sacrifice a Map. Add a free Infused Ambush craft to your Map device" "sacrificeMapFreeHarbinger" "Sacrifice a Map. Add a free Infused Harbinger craft to your Map device" "sacrificeMapFreePerandus" "Sacrifice a Map. Add a free Infused Perandus craft to your Map device" "reforgeKeepPrefixes" "Reroll a Rare item, keeping all Prefixes" "reforgeKeepSuffixes" "Reroll a Rare item, keeping all Suffixes" "reforgeLessLikelySame" "Reroll a Rare item, being much less likely to receive the same modifier types" "reforgeMoreLikelySame" "Reroll a Rare item, being much more likely to receive the same modifier types" -}}
-{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" (lower $shortcut)) $desc -}}
 {{- end -}}
 Inserted Craft Group 8
-{{ deleteTrigger }}
-{{ deleteResponse }}
+{{ deleteTrigger 60 }}
+{{ deleteResponse 60 }}

@@ -1,6 +1,6 @@
 {{- range $shortcut, $desc := sdict "exchange3BlessedAlt" "Exchange 3 Blessed Orbs for 6 Orbs of Alteration" "exchange3AlchChisel" "Exchange 3 Orbs of Alchemy for 6 Cartographer's Chisels" "exchange3AlchChisel" "Exchange 3 Chromatic Orbs for 6 Gemcutter's Prisms" "exchange3JewellerFusing" "Exchange 3 Jeweller's Orbs for 6 Orbs of Fusing" "exchange3AugRegal" "Exchange 3 Orbs of Augmentation for 3 Regal Orbs" "exchange3WisdomChance" "Exchange 3 Scrolls of Wisdom for 6 Orbs of Chance" "exchange3SimplePrime" "Exchange 3 Simple Sextants for 3 Prime Sextants" "exchange3PrimeAwakened" "Exchange 3 Prime Sextants for 3 Awakened Sextants" "exchange3ScourAnnul" "Exchange 3 Orbs of Scouring for 3 Orbs of Annulment" "exchange3AltChaos" "Exchange 3 Orbs of Alteration for 3 Chaos Orbs" -}}
-{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" (lower $shortcut)) $desc -}}
 {{- end -}}
 Inserted Craft Group 6
-{{ deleteTrigger }}
-{{ deleteResponse }}
+{{ deleteTrigger 60 }}
+{{ deleteResponse 60 }}

@@ -1,6 +1,6 @@
 {{- range $shortcut, $desc := sdict "exchange10ScourAnnul" "Exchange 10 Orbs of Scouring for 10 Orbs of Annulment" "exchange10AltChaos" "Exchange 10 Orbs of Alteration for 10 Chaos Orbs" "exchange10VaalRegret" "Exchange 10 Vaal Orbs for 20 Orbs of Regret" "exchange10ChiselVaal" "Exchange 10 Cartographer's Chisels for 10 Vaal Orbs" "upgradeEssence" "Upgrade the tier of an Essence" "exchangeResonatorFossil" "Exchange a Resonator for a Fossil or vice versa. Rare outcomes are more likely with rare inputs" "upgradeOil" "Upgrade an Oil into a higher tier Oil" "upgradeEngineer" "Upgrade an Engineer's Orb to an Infused Engineer's Orb" "exchangeScarab" "Change a Scarab to another Scarab of the same rarity" "upgradeScarab" "Attempt to upgrade a Scarab, with a chance for it to become Winged" -}}
-{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" (lower $shortcut)) $desc -}}
 {{- end -}}
 Inserted Craft Group 19
-{{ deleteTrigger }}
-{{ deleteResponse }}
+{{ deleteTrigger 60 }}
+{{ deleteResponse 60 }}

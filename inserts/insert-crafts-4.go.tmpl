@@ -1,6 +1,6 @@
 {{- range $shortcut, $desc := sdict "removeFire" "Remove a random Fire modifier from an item" "randomiseFire" "Randomise the numeric values of the random Fire modifiers on a Magic or Rare item" "removeAddFire" "Remove a random Fire modifier from an item and add a new Fire modifier" "reforgeMoreCommonFire" "Reforge a Rare item with new random modifiers, including a Fire modifier. Fire modifiers are more common" "addLuckyFire" "Augment a Magic or Rare item with a new Fire modifier with Lucky values" "socketNumber10Times" "Reforges the number of sockets on an item 10 times, using the outcome with the greatest number of sockets" "socketLink10Times" "Reforges the links between sockets on an item 10 times, using the outcome with the greatest number of linked sockets" "socketColor10Times" "Reforges the colours of sockets on an item 10 times, using the outcome with the greatest number of less-common socket colours" "qualityFlask" "Improves the Quality of a Flask by at least 10%. Has greater effect on lower rarity flasks. The maximum quality is 20%" "qualityGem" "Improves the Quality of a Gem by at least 10%. The maximum quality is 20%" -}}
-{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" (lower $shortcut)) $desc -}}
 {{- end -}}
 Inserted Craft Group 4
-{{ deleteTrigger }}
-{{ deleteResponse }}
+{{ deleteTrigger 60 }}
+{{ deleteResponse 60 }}

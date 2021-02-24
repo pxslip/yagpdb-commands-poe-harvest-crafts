@@ -1,6 +1,6 @@
 {{- range $shortcut, $desc := sdict "sacrificeGem50GCP" "Sacrifice a Corrupted Gem to gain 50% of the gem's quality as Gemcutter's Prisms" "sacrificeGem20Lens" "Sacrifice a Corrupted Gem to gain 20% of the gem's total experience stored as a Facetor's Lens" "sacrificeGem30Lens" "Sacrifice a Corrupted Gem to gain 30% of the gem's total experience stored as a Facetor's Lens" "sacrificeGem40Lens" "Sacrifice a Corrupted Gem to gain 40% of the gem's total experience stored as a Facetor's Lens" "sacrificeGem50Lens" "Sacrifice a Corrupted Gem to gain 50% of the gem's total experience stored as a Facetor's Lens" "awakenGem" "Attempt to Awaken a level 20 Support Gem that can be Awakened with a 5% chance. If it does not Awaken, it is destroyed." "changeMapSameTier" "Change a Map into another of the same tier, prioritising Maps that you have not yet completed" "sacrificeMapLowerTier" "Sacrifice a Map for multiple Maps one tier lower" "sacrificeMapCorrupted" "Sacrifice a Corrupted Map. Create a new Corrupted Map of the same tier." "implicitJewel" "Set a new Implicit modifier on a Cobalt, Crimson, Viridian or Prismatic Jewel" -}}
-{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" (lower $shortcut)) $desc -}}
 {{- end -}}
 Inserted Craft Group 16
-{{ deleteTrigger }}
-{{ deleteResponse }}
+{{ deleteTrigger 60 }}
+{{ deleteResponse 60 }}

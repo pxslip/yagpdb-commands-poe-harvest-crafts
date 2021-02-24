@@ -1,6 +1,6 @@
 {{- range $shortcut, $desc := sdict "changeUniqueWeap" "Change a Unique Weapon into another Unique Weapon of that weapon type" "changeUniqueArm" "Change a Unique Armour into another Unique Armour of that type" "changeUniqueRingAmuBelt" "Change a Unique Ring, Amulet or Belt into another Unique item of that type" "changeUniqueJewel" "Change a Unique Jewel into another Unique Jewel" "changeDivCard" "Change a Divination Card into another random Divination Card" "sacrificeDivCardTwice" "Sacrifice up to half a stack of Divination Cards to receive between 0 and twice that amount of the same Card" "sacrificeDivCardDifferent" "Sacrifice a stack of Divination Cards for that many different Divination Cards" "changeVaalFragment" "Change a Sacrifice or Mortal Fragment into another random Fragment of that type" "changeShaperFragment" "Change a Shaper Fragment into another random Shaper Fragment" "changeElderFragment" "Change an Elder Fragment into another random Elder Fragment of that type" -}}
-{{- dbSet 0 (joinStr "" "poehcs_craft_" $shortcut) $desc -}}
+{{- dbSet 0 (joinStr "" "poehcs_craft_" (lower $shortcut)) $desc -}}
 {{- end -}}
 Inserted Craft Group 24
-{{ deleteTrigger }}
-{{ deleteResponse }}
+{{ deleteTrigger 60 }}
+{{ deleteResponse 60 }}
