@@ -3,11 +3,16 @@
 {{- $league := dbGet .User.ID "poehcs_league" -}}
 {{- if eq (len $crafts) 0 -}}{{- sendDM "You have no crafts available" -}}
 {{- else -}}
-```
-# WTS {{$league}} - IGN: {{$ign}}
-{{- range $craft := $crafts -}}
+```md
+# WTS {{$league.Value}} - IGN: {{$ign.Value}}
+{{ range $craft := $crafts }}
 {{- $keyParts := split (slice $craft.Key 9) "_" -}}
-  ({{$craft.Value}}x) [{{index $keyParts 0}}][lvl{{index $keyParts 1}}] <>
+{{- $valueParts := split (toString $craft.Value) "|" -}}
+{{- $cost := "Not Set" -}}
+{{- if (ge (len $valueParts) 2) -}}
+  {{- $cost := (index $valueParts 1) -}}
+{{- end -}}
+  ({{index $valueParts 0}}x) [{{index $keyParts 0}}][lvl{{index $keyParts 1}}] <{{$cost}}>
 {{- end -}}
 ```
 {{- end -}}

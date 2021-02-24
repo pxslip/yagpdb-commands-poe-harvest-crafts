@@ -1,7 +1,31 @@
-{{- $args := parseArgs 2 "Requires 2 values, craft shortcut (!craftShortcuts) and iLvl of the craft e.g. !addCraft remAddFire 76"
+{{- $args := parseArgs 2 "Usage: !addcraft craftShortcut [iLvl] [Cost]"
   (carg "string" "The shortcut name of the craft you want to add")
-  (carg "string" "The iLvl of the craft") -}}
-{{- $count := dbIncr .User.ID (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) 1 -}}
-You have {{ $count }} {{ $args.Get 0 }} crafts with iLvl {{ $args.Get 1 }}
+  (carg "string" "The iLvl of the craft")
+  (carg "string" "The cost of the craft") -}}
+{{- $craftExists := dbGet 0 (joinStr "_" "poehcs" "craft" (lower ($args.Get 0))) -}}
+{{- if $craftExists -}}
+  {{- $key := (joinStr "_" "poehcs" "u" (lower ($args.Get 0)) (lower ($args.Get 1))) -}}
+  {{- $count := 1 -}}
+  {{- $cost := "Not Set" -}}
+  {{- if $args.IsSet 2 -}}
+    {{- $cost = $args.Get 2 -}}
+  {{- end -}}
+  {{- $craft := dbGet .User.ID $key -}}
+  {{- if $craft -}}
+    {{- $parts := split $craft.Value "|" -}}
+    {{- $count = add (toInt (index $parts 0)) 1 -}}
+
+    {{- if $args.IsSet 2 -}}
+      {{- $cost = $args.Get 2 -}}
+    {{- else -}}
+      {{- $cost = index $parts.get 1 -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $value := joinStr "|" $count $cost -}}
+  {{- dbSet .User.ID $key $value -}}
+  You have {{$count}} {{$args.Get 0}} with level {{$args.Get 1}}, price is currently {{$cost}}
+{{- else -}}
+  The craft shortcut you provided is not valid, please use `!iscraftshortcut` or `!listcrafts` to find the correct shortcut
+{{- end -}}
 {{- deleteTrigger 60 -}}
 {{- deleteResponse 60 -}}
