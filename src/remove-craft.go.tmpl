@@ -7,15 +7,19 @@
   {{- $count := 0 -}}
   {{- $craft := dbGet .User.ID $key -}}
   {{- if $craft -}}
-    {{- $parts := split $craft.Value "|" -}}
+    {{- $parts := split (toString $craft.Value) "|" -}}
     {{- $count = add (toInt (index $parts 0)) -1 -}}
+    {{- $price := "Not Set" -}}
+    {{- if (ge (len $parts) 2) -}}
+      {{ $price = index $parts 1 }}
+    {{- end -}}
     {{- if (le $count 0) -}}
       {{- dbDelByID .User.ID $craft.ID -}}
     {{- else -}}
-      {{- $value := joinStr "|" $count (index $parts 1) -}}
+      {{- $value := joinStr "|" $count $price -}}
       {{- dbSet .User.ID $key $value -}}
     {{- end -}}
-    You have {{$count}} {{$args.Get 0}} with level {{$args.Get 1}}, price is currently {{index $parts 1}}
+    You have {{$count}} {{$args.Get 0}} with level {{$args.Get 1}}, price is currently {{$price}}
   {{- else -}}
     You had no {{$args.Get 0}} at iLvl {{$args.Get 1}}
   {{- end -}}
